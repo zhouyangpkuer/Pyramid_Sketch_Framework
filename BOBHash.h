@@ -4,7 +4,6 @@
 using namespace std;
 
 typedef unsigned int uint;
-typedef unsigned long long int uint64;
 
 #define MAX_PRIME 1229
 #define MAX_BIG_PRIME 50
@@ -16,19 +15,19 @@ public:
 	~BOBHash();
 	BOBHash(uint primeNum);
 	void initialize(uint primeNum);
-	uint64 run(const char * str, uint len);
+	uint run(const char * str, uint len);
 private:
 	uint primeNum;
 };
 
-uint64 big_prime[MAX_BIG_PRIME] = {
+uint big_prime[MAX_BIG_PRIME] = {
 	20177, 20183, 20201, 20219, 20231, 20233, 20249, 20261, 20269, 20287,
 	20297, 20323, 20327, 20333, 20341, 20347, 20353, 20357, 20359, 20369,
 	20389, 20393, 20399, 20407, 20411, 20431, 20441, 20443, 20477, 20479,
 	20483, 20507, 20509, 20521, 20533, 20543, 20549, 20551, 20563, 20593,
 	20599, 20611, 20627, 20639, 20641, 20663, 20681, 20693, 20707, 20717
 };
-uint64 prime[MAX_PRIME] = {
+uint prime[MAX_PRIME] = {
 	2, 3, 5, 7, 11, 13, 17, 19, 23, 29,
 	31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
 	73, 79, 83, 89, 97, 101, 103, 107, 109, 113,
@@ -183,11 +182,11 @@ void BOBHash::initialize(uint primeNum)
 	this->primeNum = primeNum;
 }
 
-uint64 BOBHash::run(const char * str, uint len)
+uint BOBHash::run(const char * str, uint len)
 {
 	//register ub4 a,b,c,len;
-	unsigned int a,b,c;
-	unsigned int initval = 0;
+	uint a,b,c;
+	uint initval = 0;
 	/* Set up the internal state */
 	//len = length;
 	a = b = 0x9e3779b9;  /* the golden ratio; an arbitrary value */
@@ -196,9 +195,9 @@ uint64 BOBHash::run(const char * str, uint len)
 	/*---------------------------------------- handle most of the key */
 	while (len >= 12)
 	{
-		a += (str[0] +((unsigned int)str[1]<<8) +((unsigned int)str[2]<<16) +((unsigned int)str[3]<<24));
-		b += (str[4] +((unsigned int)str[5]<<8) +((unsigned int)str[6]<<16) +((unsigned int)str[7]<<24));
-		c += (str[8] +((unsigned int)str[9]<<8) +((unsigned int)str[10]<<16)+((unsigned int)str[11]<<24));
+		a += (str[0] +((uint)str[1]<<8) +((uint)str[2]<<16) +((uint)str[3]<<24));
+		b += (str[4] +((uint)str[5]<<8) +((uint)str[6]<<16) +((uint)str[7]<<24));
+		c += (str[8] +((uint)str[9]<<8) +((uint)str[10]<<16)+((uint)str[11]<<24));
 		mix(a,b,c);
 		str += 12; len -= 12;
 	}
@@ -207,17 +206,17 @@ uint64 BOBHash::run(const char * str, uint len)
 	c += len;
 	switch(len)              /* all the case statements fall through */
 	{
-		case 11: c+=((unsigned int)str[10]<<24);
-		case 10: c+=((unsigned int)str[9]<<16);
-		case 9 : c+=((unsigned int)str[8]<<8);
+		case 11: c+=((uint)str[10]<<24);
+		case 10: c+=((uint)str[9]<<16);
+		case 9 : c+=((uint)str[8]<<8);
 		/* the first byte of c is reserved for the length */
-		case 8 : b+=((unsigned int)str[7]<<24);
-		case 7 : b+=((unsigned int)str[6]<<16);
-		case 6 : b+=((unsigned int)str[5]<<8);
+		case 8 : b+=((uint)str[7]<<24);
+		case 7 : b+=((uint)str[6]<<16);
+		case 6 : b+=((uint)str[5]<<8);
 		case 5 : b+=str[4];
-		case 4 : a+=((unsigned int)str[3]<<24);
-		case 3 : a+=((unsigned int)str[2]<<16);
-		case 2 : a+=((unsigned int)str[1]<<8);
+		case 4 : a+=((uint)str[3]<<24);
+		case 3 : a+=((uint)str[2]<<16);
+		case 2 : a+=((uint)str[1]<<8);
 		case 1 : a+=str[0];
 		/* case 0: nothing left to add */
 	}

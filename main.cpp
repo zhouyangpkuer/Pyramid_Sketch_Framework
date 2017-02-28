@@ -23,7 +23,7 @@
 using namespace std;
 
 
-char * filename_FlowTraffic = "stream.dat";
+char * filename_stream = "stream.dat";
 
 char insert[10000000 + 10000000 / 5][100];
 char query[10000000 + 10000000 / 5][100];
@@ -31,13 +31,13 @@ char query[10000000 + 10000000 / 5][100];
 
 unordered_map<string, int> unmp;
 
-#define testcycles 10
+#define testcycles 1
 
 int main(int argc, char** argv)
 {
     if(argc == 2)
     {
-        filename_FlowTraffic = argv[1];
+        filename_stream = argv[1];
     }
 
     unmp.clear();
@@ -75,8 +75,8 @@ int main(int argc, char** argv)
     int package_num = 0;
 
 
-    FILE *file_FlowTraffic = fopen(filename_FlowTraffic, "r");
-    while(fgets(insert[package_num], 100, file_FlowTraffic) != NULL)
+    FILE *file_stream = fopen(filename_stream, "r");
+    while(fgets(insert[package_num], 100, file_stream) != NULL)
     {
 
         unmp[string(insert[package_num])]++;
@@ -86,13 +86,13 @@ int main(int argc, char** argv)
         if(package_num == MAX_INSERT_PACKAGE)
             break;
     }
-    fclose(file_FlowTraffic);
+    fclose(file_stream);
 
 
 
 
     
-    printf("dataset name: %s\n", filename_FlowTraffic);
+    printf("dataset name: %s\n", filename_stream);
     printf("total stream size = %d\n", package_num);
     printf("distinct item number = %d\n", unmp.size());
     

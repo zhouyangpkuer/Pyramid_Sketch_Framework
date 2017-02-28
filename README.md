@@ -10,7 +10,7 @@ The source code contains the C++ implementation of the CM, CU, C, A sketch and P
 
 The file stream.dat is the subset of one of our synthetic dataset used in experiments. This small dataset contains 1M items totally and 277,473 distinct items. The maximum frequency of those items is 2114. The full dataset can be download on our homepage (http://net.pku.edu.cn/~yangtong/uploads/stream_full.dat).
 
-We set the memory allocated to each sketch 0.1Mb. The other parameters setting is the same as mentioned in the paper.
+We set the memory allocated to each sketch 0.1MB. The other parameters setting is the same as mentioned in the paper.
 
 
 ## How to run
