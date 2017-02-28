@@ -23,4 +23,4 @@ Suppose you've already cloned the respository and start from the `Pyramid_Sketch
 
 ## Output format
 
-Our program will print the throughput of insertion and query of these eight sketches and the ARE and AAE of these sketches. Note that to obtain more convincing results of throughput, you are supposed to set the micro "testcycles" in the main.cpp to a larger value (e.g. 100).
+Our program will print the throughput of insertion and query of these eight sketches and the ARE and AAE of these sketches. Note that to obtain more convincing results of throughput, you are supposed to set the micro "testcycles" in the main.cpp to a larger value (e.g. 100) and run the program on a Linux server.
