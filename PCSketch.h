@@ -31,7 +31,6 @@ private:
 
 public:
 
-
 	PCSketch(int _word_num, int _d, int word_size);
 	void Insert(const char * str);
 	int Query(const char *str);
@@ -50,6 +49,7 @@ public:
 //For PCSketch.h, the word_size must be 64;
 PCSketch::PCSketch(int _word_num, int _d, int word_size)
 {
+
 	d = _d;
 	word_num = _word_num * 4.0 / 5.0;
 	//for calculating the four hash value constrained in one certain word;
@@ -106,10 +106,6 @@ void PCSketch::Insert(const char *str)
 
 		hash_value >>= counter_index_size;
 	}
-
-
-
-
 
 	for(int i = 0; i < d; i++)
 	{	
@@ -195,6 +191,7 @@ void PCSketch::Insert(const char *str)
 
 int PCSketch::Query(const char *str)
 {
+
 	int temp, temp2;
 	int res[MAX_HASH_NUM], value[MAX_HASH_NUM], index[MAX_HASH_NUM];
 	int flag_t = 0xFFFF;
@@ -256,6 +253,7 @@ int PCSketch::Query(const char *str)
 		r = res[d / 2];
 	}
 	return r;
+
 
 }
 void PCSketch::Delete(const char *str)

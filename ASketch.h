@@ -20,11 +20,10 @@ private:
 	BOBHash *bobhash[MAX_HASH_NUM];
 
 public:
-	int mem_acc_ins, mem_acc_query;
+
 	ASketch(int _w, int _d)
 	{
-		mem_acc_ins = 0;
-		mem_acc_query = 0;
+
 		w = _w;
 		d = _d;
 		for(int i = 0; i < d; i++)	

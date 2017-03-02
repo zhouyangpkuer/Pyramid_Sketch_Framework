@@ -20,8 +20,6 @@ private:
 	int d;
 	uint64 *counter[60];
 
-	
-
 	int *new_count;
 	int *old_count;
 	char **items;
@@ -36,9 +34,12 @@ private:
 
 
 public:
+
 	PASketch(int _word_num, int _d, int word_size);
 	void Insert(const char * str);
 	void PC_Insert(const char * str);
+	void PC_Insert_num(const char * str, int num);
+
 	int my_get_value(int index);
 
 	int InsertAndQuery(const char *str);
@@ -82,6 +83,7 @@ int PASketch::find_empty_in_filter()
 //For PASketch.h, the word_size must be 64;
 PASketch::PASketch(int _word_num, int _d, int word_size)
 {
+
 	d = _d;
 	word_num = _word_num;
 	//for calculating the four hash value constrained in one certain word;
@@ -120,6 +122,7 @@ void PASketch::Insert(const char * str)
 	int index = find_element_in_filter(str);
 	int index_empty = find_empty_in_filter();
 	int estimate_value, min_index, min_value, hash_value, temp;
+
 	if(index != -1)
 	{
 		new_count[index] += 1;
@@ -162,9 +165,11 @@ void PASketch::Insert(const char * str)
 			old_count[min_index] = estimate_value;
 		}
 	}
+
 }
 int PASketch::Query(const char *str)
 {
+
 	int index = find_element_in_filter(str);
 	if(index != -1)
 	{
@@ -172,7 +177,6 @@ int PASketch::Query(const char *str)
 	}
 	int hash_value;
 	int estimate_value = PC_Query(str);
-	
 	return estimate_value;
 }
 
@@ -213,10 +217,8 @@ void PASketch::PC_Insert(const char *str)
 			counter[0][my_word_index] += ((uint64)0x1 << (counter_offset[i] << 2));
 		}
 	}
-	
 	return;
 }
-
 int PASketch::PC_Query(const char *str)
 {
 	int min_value = 1 << 30;

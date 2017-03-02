@@ -28,8 +28,6 @@ private:
 
 
 public:
-
-
 	PCUSketch(int _word_num, int _d, int word_size);
 	void Insert(const char * str);
 	int Query(const char *str);
@@ -76,6 +74,7 @@ void PCUSketch::Insert(const char *str)
 	uint64 hash_value = (bobhash[0]->run(str, strlen(str)));
 	int my_word_index = (hash_value & ((1 << word_index_size) - 1)) % word_num;
 	hash_value >>= word_index_size;
+
 
 	for(int i = 0; i < d; i++)
 	{
@@ -134,7 +133,6 @@ int PCUSketch::Query(const char *str)
 		value[i] += get_value(index[i]);
 		min_value = value[i] < min_value ? value[i] : min_value;
 	}
-
 	return min_value;
 
 }

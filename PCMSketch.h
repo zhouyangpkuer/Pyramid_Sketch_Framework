@@ -28,8 +28,6 @@ private:
 
 
 public:
-
-
 	PCMSketch(int _word_num, int _d, int word_size);
 	void Insert(const char * str);
 	int Query(const char *str);
@@ -130,6 +128,7 @@ int PCMSketch::Query(const char *str)
 		value[i] += get_value(index[i]);
 		min_value = value[i] < min_value ? value[i] : min_value;
 	}
+
 
 	return min_value;
 

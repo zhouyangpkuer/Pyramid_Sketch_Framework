@@ -31,7 +31,8 @@ char query[10000000 + 10000000 / 5][100];
 
 unordered_map<string, int> unmp;
 
-#define testcycles 1
+#define testcycles 10
+
 
 int main(int argc, char** argv)
 {
@@ -54,8 +55,6 @@ int main(int argc, char** argv)
     printf("\n******************************************************************************\n");
     printf("Evaluation starts!\n\n");
 
-    // printf("w = %d, w_p = %d, word_size = %d\n", w, w_p, word_size);
-
     
     CMSketch *cmsketch;
     CUSketch *cusketch;
@@ -76,9 +75,9 @@ int main(int argc, char** argv)
 
 
     FILE *file_stream = fopen(filename_stream, "r");
+
     while(fgets(insert[package_num], 100, file_stream) != NULL)
     {
-
         unmp[string(insert[package_num])]++;
 
         package_num++;
@@ -102,7 +101,6 @@ int main(int argc, char** argv)
     for(int i = 0; i < unmp.size(); i++, it++)
     {
         strcpy(query[i], it->first.c_str());
-        // printf("query[i] = %s\n", query[i]);
 
         int temp2 = it->second;
         max_freq = max_freq > temp2 ? max_freq : temp2;
