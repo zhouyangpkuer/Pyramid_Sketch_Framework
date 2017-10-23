@@ -3,7 +3,13 @@
 
 ## Introduction
 
-The *sketch* is a probabilistic data structure, and is used to store and query the frequency of any item in a given multiset. Due to its memory efficiency, it has been applied to various fields in computer science, such as streaming database, network traffic measurement, etc. The key factors of sketches for data streams are accuracy, speed, and memory usage. There are various sketches in the literature, but they cannot achieve both high accuracy and high speed using limited memory, especially for skewed datasets. To address this issue, we propose a sketch framework, *the Pyramid sketch*, which can significantly improve accuracy as well as update and query speed. To verify the effectiveness and efficiency of our framework, we applied our framework to four typical sketches.
+### VLDB version
+The *sketch* is a probabilistic data structure, and is used to store and query the frequency of any item in a given multiset. Due to its memory efficiency, it has been applied to various fields in computer science, such as streaming database, network traffic measurement, etc. The key factors of sketches for data streams are accuracy, speed, and memory usage. There are various sketches in the literature, but they cannot achieve both high accuracy and high speed using limited memory, especially for skewed datasets. To address this issue, we propose a sketch framework, *the Pyramid sketch*, which can significantly improve accuracy as well as update and query speed. To verify the effectiveness and efficiency of our framework, we applied our framework to four typical sketches. Extensive experimental results show that the accuracy is improved up to 3.50 times, while the speed is improved up to 2.10 times.
+
+
+### ToN version
+*Sketch* is a probabilistic data structure, which is widely used in the real network for per-flow measurement. The key metrics of sketches for per-flow measurement are accuracy, speed, and memory usage. Various sketches have been proposed, but they cannot achieve both high accuracy and high speed using limited memory, especially in the real network where the flow size distribution is highly skewed. To address this issue, we propose a sketch framework, *the Pyramid sketch*, which can significantly improve accuracy as well as update and query speed. To verify the effectiveness and efficiency of our framework, we applied our framework to four typical sketches. Extensive experimental results show that the accuracy is improved up to 3.50 times, while the speed is improved up to 2.10 times.
+
 
 
 ## About the source codes, dataset and parameters setting
