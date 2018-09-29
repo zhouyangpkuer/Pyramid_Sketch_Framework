@@ -38,4 +38,4 @@ Our program will print the throughput of insertion and query of these eight sket
 
 [(VLDB17) Pyramid Sketch: a Sketch Framework for Frequency Estimation of Data Streams](http://www.zhouy.me/paper/pyramid-vldb17.pdf)
 
-[Technical Report](https://github.com/zhouyangpkuer/Pyramid_Sketch_Framework/technical_report.pdf)
+[Technical Report](https://github.com/zhouyangpkuer/Pyramid_Sketch_Framework/blob/master/technical_report.pdf)
